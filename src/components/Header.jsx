@@ -7,7 +7,7 @@ import ThemeComp from './ThemeComp';
 const Header = () => {
     return (
         <div className='flex items-center gap-7 h-20 p-5 max-w-screen-xl mx-auto '>
-            <div className='bg-rose-700 rounded-lg  p-3 sm:text-2xl font-bold text-sky-500'>
+            <div className='dark:bg-rose-700 bg-orange-600 rounded-lg  p-3 sm:text-2xl font-bold dark:text-sky-500'>
                 MoviAPP
             </div>
             <div className='flex flex-1 items-center p-3 gap-2 border rounded-lg'>

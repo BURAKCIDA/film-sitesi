@@ -1,13 +1,18 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useTheme } from 'next-themes'
 const ThemeComp = () => {
+    const [mounted, setMounted] = useState(false)
     const { theme, setTheme, systemTheme } = useTheme();
+
     const currentTheme = theme === 'system' ? systemTheme : theme;
+    useEffect(() => {
+        setMounted(true)
+    }, [])
     return (
         <div>
-            {currentTheme === 'dark' ? (
+            {mounted && (currentTheme === 'dark' ? (
                 <MdLightMode
                     onClick={() => setTheme('light')}
                     className='text-xl cursor-pointer hover:text-orange-400' />
@@ -15,7 +20,7 @@ const ThemeComp = () => {
                 <MdDarkMode
                     onClick={() => setTheme('dark')}
                     className='text-xl cursor-pointer hover:text-orange-400' />
-            )}
+            ))}
         </div>
     )
 }
